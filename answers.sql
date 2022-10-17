@@ -124,3 +124,151 @@ Write a query that shows all the distinct regions that a salesperson can belong 
 
 
 SELECT distinct region FROM salespeople;
+
+
+==========
+10
+
+-----
+
+Write a query that shows the emails of all salespeople from both the
+Northwest and Southwest regions.
+
+
+-----
+
+
+SELECT email FROM salespeople WHERE region = 'Northwest' OR region = 'Southwest';
+
+
+==========
+11
+
+-----
+
+Write a query that shows the emails of all salespeople from both the
+Northwest and Southwest regions, this time using an 'IN' clause.
+
+
+-----
+
+
+SELECT email FROM salespeople WHERE region IN ('Northwest', 'Southwest');
+
+
+==========
+12
+
+-----
+
+Write a query that shows the email, first name, and last name of all
+salespeople in either the Northwest or Southwest regions whose last names start
+with the letter 'M'.
+
+-----
+
+
+SELECT email, first_name, last_name
+FROM salespeople
+WHERE last_name LIKE 'M%' AND region IN ('Northwest', 'Southwest');
+
+
+==========
+13
+
+-----
+
+Write a query that shows the melon type, common name, price, and the
+price of the melon given in euros. The 'melons' table has prices in dollars,
+and the dollar to euro conversion rate is 0.73.
+
+
+-----
+
+
+SELECT melon_type, common_name, price, price*0.73 AS price_in_euros
+FROM melons;
+
+
+==========
+14
+
+-----
+
+Write a query that shows the total number of customers in our customer
+table.
+
+-----
+
+
+SELECT COUNT(*)
+FROM customers;
+
+
+==========
+15
+
+-----
+
+Write a query that counts the number of orders (in the orders table) shipped to California.
+
+-----
+
+
+SELECT COUNT(*)
+FROM orders
+WHERE shipto_state = 'CA';
+
+
+==========
+16
+
+-----
+
+Write a query that shows the total amount of money spent across all melon
+orders.
+
+-----
+
+
+SELECT SUM(order_total) FROM orders;
+
+
+==========
+17
+
+-----
+
+Write a query that shows the average order cost.
+
+-----
+
+
+SELECT AVG(order_total) FROM orders;
+
+
+==========
+18
+
+-----
+
+Write a query that shows the order total that was lowest in price.
+
+-----
+
+
+SELECT MIN(order_total) FROM orders;
+
+
+==========
+19
+
+-----
+
+Write a query that fetches the id of the customer whose email is
+'pclark74@gmail.com'.
+
+-----
+
+
+SELECT id FROM customers WHERE email = 'pclark74@gmail.com';
